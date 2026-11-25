@@ -1,0 +1,30 @@
+# secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+credentials*.json
+secrets*
+
+# local tooling / personal
+.claude/
+CLAUDE.md
+.vscode/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# generated vector DBs
+db/
+chroma*/
+*.sqlite3
+
+# large / third-party docs
+*.pdf
+
+# empty scratch file
+code.py

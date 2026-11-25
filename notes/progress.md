@@ -1,0 +1,12 @@
+# Progress
+
+| วันที่ | หัวข้อ | สถานะ |
+|---|---|---|
+| 2026-11-03 | 4.1 LangChain (Document/Splitter/Embeddings/VectorStore/Retriever + LCEL) | ทฤษฎี + ตอบคำถามเช็กแล้ว, แบบฝึกหัดข้อ 1-2 รันแล้ว (`exercises/04_ex1.py`, PDF = attention.pdf), ข้อ 3 (`exercises/04_ex3.py`, chain + Claude, key อยู่ใน `.env`) รันผ่านแล้ว. **จบ 4.1** (แก้ Brotli 1.1.0 -> 1.2.1 เพราะชนกับ httpx2) |
+| 2026-11-05 | 4.2 LlamaIndex (Reader/Node/Index/QueryEngine/Settings) | ทฤษฎี + โค้ด `exercises/05_llamaindex.py` รันผ่าน (`notes/05_llamaindex.md`). รอตอบคำถามเช็ก + แบบฝึกหัด 1-3 |
+| 2026-11-10 | ฝึกเสริม: RAG from Scratch (ตาม notebook ของ Kalyan KS) | เขียนเอง `RAG_by_myself.py` รันผ่านครบ 7 step: pypdf -> chunk ตามประโยค -> ChromaDB (persistent) + MiniLM -> retrieve -> prompt -> Claude ผ่าน litellm. เจอ/แก้: key OpenAI ไม่มี (ใช้ SentenceTransformerEmbeddingFunction), db ว่างหลอก `os.path.exists`, Claude รุ่นใหม่ไม่รับ `temperature=0` |
+| 2026-11-16 | ฝึกเสริม: `Lang_chain.py`, `Web_Page_RAG.py`, `youtube_rag.py` (RAG ด้วย LangChain: PDF / เว็บเพจ / YouTube transcript, MiniLM + Claude) | `Youtube_RAG.py` (เปลี่ยนชื่อแล้ว) รันผ่าน: K=2 พลาด chunk คำตอบ (ซับอัตโนมัติสะกดเพี้ยน `fery`/`faery` + MiniLM อ่อน) -> ตั้ง K=5 ตอบถูก (Nagapattinam). `Web_Page_RAG.py` ยังไม่ได้ยืนยันว่ารันผ่าน (ต้อง `bs4`). เรียนเสริม: chain `\|` = invoke ต่อกัน, transcript RAG ไม่เห็นภาพ, RAG คุ้มเมื่อข้อมูลเยอะ |
+| 2026-11-17 | ฝึกเสริม: Agentic RAG ด้วย CrewAI (`AgenticRAG_with_CrewAI.py`: Rewrite -> Router -> Retriever -> Evaluator -> Answer) | รันได้ครบ 5 agent ด้วย Claude (LLM) + MiniLM (embedding, key ต้องชื่อ `embedding_model` ไม่ใช่ `embedder`). ผล "Unable to answer" ถูกต้อง เพราะเว็บ `akmmusai.pro` ถูกยึดเป็นเว็บพนันแล้ว (ไม่ใช่บั๊ก embed). ควรเปลี่ยน `SITE` เป็นเว็บที่ปลอดภัยก่อนรันอีก |
+| 2026-11-17 | อ่านล่วงหน้า: RAG Evaluation Metrics (บท 16) | สรุปเก็บไว้ที่ `notes/ref_rag_eval_intro.md` + `notes/ref_rag_retriever_metrics.md` (precision/recall/entities recall/relevancy พร้อมสูตรและตัวอย่าง) ยังไม่ได้เรียนจริง รอถึงบท 16 |
+| 2026-11-16 | 4.3 เทียบ LangChain vs LlamaIndex | ทฤษฎีเสร็จ (`notes/06_compare_frameworks.md`) รวมคำตอบคำถามค้าง 4.2 (Settings vs explicit). รอตอบคำถามเช็ก 4.3 + แบบฝึกหัด 1-3 |
+| 2026-11-20 | ลงมือ: Retriever metrics (บท 16 เรียนก่อนลำดับ) | `exercises/16_retriever_metrics.py` คำนวณ Precision@K / Recall / Entities Recall / Relevancy ด้วย label มือ (ไม่ใช้ LLM) รันผ่าน, assert ตรงตัวอย่างในเอกสาร. 4.3 ยังรอตอบคำถามเช็ก |
